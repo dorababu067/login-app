@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block body %}
+    <table class="table" >
+        <thead>
+        <tr>
+            <th >Studnt_Name</th>
+            <th >Studnt_Age</th>
+            <th >Studnt_Address</th>
+            <th colspan="2" scope="col">Validations</th>
+        </tr>
+         </thead>    
+        {%  for details in data %}
+                <tbody>
+                <tr>
+                    <td>{{ details.name }}</td>
+                    <td>{{ details.age }}</td>
+                    <td>{{ details.address }}</td>
+                     <td>
+                        <a href="{% url 'edit' id=details.id %}"> <input type="button" class="btn btn-secondary" value="Modify"/> </a>
+                    </td>
+                    <td>
+                     <a href="{% url 'delete' id=details.id %}"><input type="button" class="btn btn-danger" value="Delete"/></a>
+                    </td>
+                 </tr>
+                </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}

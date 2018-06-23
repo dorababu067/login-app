@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block body %} 
+    <div class="row">
+       </div>
+        <div class="col-md-8 offset-4">
+            <form action="" method="post">
+            <div class="form-group">
+                {% csrf_token %}
+            {% for field in form %}
+            <div class="row">
+                <div class="col-md-6">
+                        {{field.label_tag}}<br>
+                        {{field}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+   

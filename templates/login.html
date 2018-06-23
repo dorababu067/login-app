@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block body %}
+       <form action="" method="post">
+            {% csrf_token %}
+                                        <!----
+                                        {% for field in form %}
+                                        
+                                            <p>
+                                                {{field.label_tag}}<br>
+                                                {{field}}
+                                                {% if field.help_text %}<
+                                                <small style="color: brown">{{field.help_text}}</small>
+                                                {% endif %}
+                                                {% for error in field.errors %}
+                                                    <p style="color:red ">{{error}}</p>
+                                    
+                                                {% endfor %} 
+                                            </p>
+                                        {% endfor %}
+                                        -->
+            <div class="row">
+             
+                <div class="col-md-4 offset-4">
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-warning">
+                                {{message}}
+                            </div>
+                             {%endfor%}
+                    {% endif %}
+                {{form}}<br>
+               <button type="submit" class="btn btn-primary" style="padding-top: 10px" >Submit</button><br>
+                </div>
+            </div>
+            
+         </form>
+    </div>
+{% endblock %}
